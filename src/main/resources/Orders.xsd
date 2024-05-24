@@ -1,0 +1,96 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://lt.viko.eif/asilaikis/springsoap/gen"
+           targetNamespace="http://lt.viko.eif/asilaikis/springsoap/gen" elementFormDefault="qualified">
+
+    <xs:element name="getClientOrdersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="FirstName" type="xs:string"/>
+                <xs:element name="LastName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getClientOrdersResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="OrderList" type="OrderList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Book_name" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Book" type="BookList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookOrdersRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Book" type="OrderList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getBookOrderResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Books" type="OrderList"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="id" type="xs:string"/>
+    <xs:element name="First_name" type="xs:string"/>
+    <xs:element name="Last_name" type="xs:string"/>
+    <xs:element name="Book_name" type="xs:string"/>
+    <xs:element name="Price" type="xs:string"/>
+    <xs:element name="client">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="id"/>
+                <xs:element ref="First_name"/>
+                <xs:element ref="Last_name"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="book">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="id"/>
+                <xs:element ref="Book_name"/>
+                <xs:element ref="First_name"/>
+                <xs:element ref="Last_name"/>
+                <xs:element ref="Price"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="Order">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="client"/>
+                <xs:element ref="book"/>
+            </xs:sequence>
+            <xs:attribute type="xs:string" name="id" use="optional"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="OrderList">
+        <xs:sequence>
+            <xs:element ref="Order" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="BookList">
+        <xs:sequence>
+            <xs:element ref="book" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
