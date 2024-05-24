@@ -33,11 +33,11 @@ public class Endpoint {
         return response;
     }
 
-    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBookOrderRequest")
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "getBookOrdersRequest")
     @ResponsePayload
-    public GetBookOrderResponse getBookOrderResponse(@RequestPayload GetBookOrderResponse request) {
-        GetBookOrderResponse response = new GetBookOrderResponse();
-        response.setBooks(service.findOrderedBook(request.getBooks()));
+    public GetBookOrdersResponse getBookOrder(@RequestPayload GetBookOrdersRequest request) {
+        GetBookOrdersResponse response = new GetBookOrdersResponse();
+        response.setBooks(service.findOrderedBook(request.getBook()));
         return response;
     }
 }

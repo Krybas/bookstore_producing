@@ -37,18 +37,19 @@
     <xs:element name="getBookOrdersRequest">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name="Book" type="OrderList"/>
+                <xs:element name="Book" type="xs:string"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
 
-    <xs:element name="getBookOrderResponse">
+    <xs:element name="getBookOrdersResponse">
         <xs:complexType>
             <xs:sequence>
                 <xs:element name="Books" type="OrderList"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
+
     <xs:element name="id" type="xs:string"/>
     <xs:element name="First_name" type="xs:string"/>
     <xs:element name="Last_name" type="xs:string"/>
